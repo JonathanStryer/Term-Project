@@ -1,0 +1,12 @@
+public class battlePanel
+{
+  private JButton moveOne;
+  private JButton moveTwo;
+  private JButton moveThree;
+  private JButton moveFour; 
+  
+  public battlePanel()
+  {
+    setLayout(new BorderLayout());
+  }
+}

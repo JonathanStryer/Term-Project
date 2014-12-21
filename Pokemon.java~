@@ -1,0 +1,453 @@
+/* 
+ * Pokemon.java
+ * Jonathan Stryer
+ * ECS 102 - M002
+ * Term Project
+ * 
+ * This class includes the constructor for a Pokemon object as well as other methods that will be used in a Pokemon battle.
+*/ 
+
+// java.awt.Graphics (java.awt.*)
+// java.awt.Graphics2D
+
+import java.util.*;
+
+public class Pokemon 
+{
+  Random rand = new Random();  
+  
+  private String name;
+  private String type;
+  private int level;
+  private int healthPoints; 
+  private int attack;
+  private int defense;
+  private int specialAttack;
+  private int specialDefense;
+  private int speed;
+  private double accuracy;
+  private double evasion;
+  private Move a;
+  private Move b;
+  private Move c;
+  private Move d;
+  private Move current;
+  
+  //----------------------------------------------------------------
+  //  Constructor: Sets the initial values for the Pokemon object.
+  //----------------------------------------------------------------
+  
+  public Pokemon(String initName, String initType, int initHP, int initAttack, int initDefense, int initSpecialAttack, int initSpecialDefense, int initSpeed, Move initA, Move initB, Move initC, Move initD)
+  {
+
+    name = initName;
+    type = initType;
+    level = 75;
+    healthPoints = initHP;
+    attack = initAttack;
+    defense = initDefense;
+    specialAttack = initSpecialAttack;
+    specialDefense = initSpecialDefense;
+    speed = initSpeed;
+    accuracy = 1.0;
+    evasion = 1.0;
+    
+    a = initA;
+    b = initB;
+    c = initC;
+    d = initD;
+    
+    current = initA;    
+  }
+  
+  //----------------------------------------------------------------------
+  // The following are various printing methods. 
+  //----------------------------------------------------------------------
+  
+  public String toString()
+  {
+    String names = getName();
+      
+    return names;
+  }
+  
+  public void getMoves()
+  {
+      System.out.println("Move 1: " + a.getMoveName());
+      System.out.println("Move 2: " + b.getMoveName());
+      System.out.println("Move 3: " + c.getMoveName());
+      System.out.println("Move 4: " + d.getMoveName());
+  }
+  
+  //----------------------------------------------------------------------
+  // The following methods return the instance variables of the object.
+  //----------------------------------------------------------------------
+  
+  public String getName() // Returns name
+  {
+    return name;
+  }
+  
+  public String getType() // Returns type
+  {
+    return type;
+  }
+  
+  public int getLevel() // Returns level
+  {
+    return level;
+  }
+
+  public int getHealthPoints() // Returns healthPoints
+  {
+    return healthPoints;
+  }
+
+  public int getAttack() // Returns attack
+  {
+    return attack;
+  }
+  
+  public int getDefense() // Returns defense
+  {
+    return defense;
+  }
+  
+  public int getSpecialAttack() // Returns specialAttack
+  {
+    return specialAttack;
+  }
+  
+  public int getSpecialDefense() // Returns specialDefense
+  {
+    return specialDefense;
+  }
+  
+  public int getSpeed() // Returns speed
+  {
+    return speed;
+  }
+  
+  public double getPokemonAccuracy()
+  {
+    return accuracy;
+  }
+  
+  public double getPokemonEvasion()
+  {
+    return evasion;
+  }
+  
+  public Move getCurrentMove() // Returns the Move object 'current' of a Pokemon object
+  {
+    return current;
+  }
+  
+  //-----------------------------------------------------------------------------------
+  // The following methods assign new values to the instance variables of the objects. 
+  //-----------------------------------------------------------------------------------
+  
+  public void setHealthPoints(int changeHealthPoints)
+  {
+    healthPoints += changeHealthPoints;
+  }
+  
+  public void setMove(int index) // Assigns a Move object the Pokemon object based on the Move object that the user or computer chose
+  {
+    if (index == 1)
+      current = a;
+    else if (index == 2)
+      current = b;
+    else if (index == 3)
+      current = c;
+    else
+      current = d; 
+  }
+  
+  //--------------------------------------------------------------------
+  // The following methods are basic functions of the game.
+  //--------------------------------------------------------------------
+  
+  
+  public void dealDamage(Pokemon attacker, Move attackMove, Pokemon defender) 
+  {
+    int damage = 0;
+    double modifier = attacker.modifier(attackMove, defender);
+    
+    if (!attackMove.isSpecial())
+    {
+      damage = (((2*getLevel()+10)/250) * ((getAttack())/defender.getDefense()) * attackMove.getBaseDmg() + 2) * (int) modifier; 
+    }
+    else 
+    {
+      damage = (((2*getLevel()+10)/250) * ((getSpecialAttack())/defender.getSpecialDefense()) * attackMove.getBaseDmg() + 2) * (int) modifier; 
+    }
+    
+    damage *= -1;
+    
+    defender.setHealthPoints(damage);
+  }
+  
+  
+  public double modifier(Move B, Pokemon C)
+  {
+    double STAB = 1.0;
+    double type = 1.5;
+    double critical = 1.0;
+    double randMod = 1.0;
+    
+    if (getType().compareTo(B.getMoveType()) == 0)
+    {
+      STAB = 1.5;
+    }
+    
+    int criticalA = rand.nextInt(10) + 1;
+    
+    if (criticalA == 1)
+    {
+      critical = 2.0;
+    }
+    
+    randMod = 1.85 + (.15)*rand.nextDouble();
+    
+    String moveType = B.getMoveType();
+    String defendingType = C.getType();
+    
+    if (moveType.compareTo("Electric") == 0)
+    {
+      if (defendingType.compareTo("Electric") == 0)
+      {
+        type = .25;
+      }
+      else if (defendingType.compareTo("Water") == 0)
+      {
+        type = 4.0;
+      }
+      else if (defendingType.compareTo("Grass") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Fire") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Rock") == 0)
+      {
+        type = 0.25;
+      }
+    }
+      
+    if (moveType.compareTo("Water") == 0)
+    {
+      if (defendingType.compareTo("Electric") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Water") == 0)
+      {
+        type = .75;
+      }
+      else if (defendingType.compareTo("Grass") == 0)
+      {
+        type = .50;
+      }
+      else if (defendingType.compareTo("Fire") == 0)
+      {
+        type = 3.0;
+      }
+      else if (defendingType.compareTo("Rock") == 0)
+      {
+        type = 4.0;
+      }
+    }
+    
+    if (moveType.compareTo("Grass") == 0)
+    {
+      if (defendingType.compareTo("Electric") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Water") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Grass") == 0)
+      {
+        type = .75;
+      }
+      else if (defendingType.compareTo("Fire") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Rock") == 0)
+      {
+        type = 3.0;
+      }
+    }
+    
+    if (moveType.compareTo("Fire") == 0)
+    {
+      if (defendingType.compareTo("Electric") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Water") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Grass") == 0)
+      {
+        type = 4.0;
+      }
+      else if (defendingType.compareTo("Fire") == 0)
+      {
+        type = 1.0;
+      }
+      else if (defendingType.compareTo("Rock") == 0)
+      {
+        type = 2.5;
+      }
+    }
+    
+    if (moveType.compareTo("Rock") == 0)
+    {
+      if (defendingType.compareTo("Electric") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Water") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Grass") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Fire") == 0)
+      {
+        type = 1.5;
+      }
+      else if (defendingType.compareTo("Rock") == 0)
+      {
+        type = 1.0;
+      }
+    }
+
+    double mod = STAB * type * critical * randMod;  
+    return mod;
+  }
+ 
+  public double HitOrMiss(Move attackMove, Pokemon defender) 
+  {
+    double probability;
+    double moveAccuracy = attackMove.getMoveAccuracy();
+    double pokemonAccuracy = getPokemonAccuracy();
+    double pokemonEvasion = defender.getPokemonEvasion();
+    double chance = .85;
+    
+    probability = moveAccuracy * (pokemonAccuracy / pokemonEvasion) * chance;
+    
+    return probability;
+  }
+
+  public int checkPriority(Pokemon computer) // This method checks to see which Pokemon will attack first. This returns 0 for the user's Pokemon and 1 for the computer's Pokemon.  
+  {
+    Move computerMove = computer.getCurrentMove();
+    
+    if (current.moveSpeed() > computerMove.moveSpeed())
+    {
+      return 0;
+    }
+    else if (current.moveSpeed() < computerMove.moveSpeed())
+    {
+      return 1;
+    }
+
+    if (getSpeed() > computer.speed)
+    {
+      return 0;
+    }
+    else if (getSpeed() < computer.speed)
+    {
+      return 1;
+    }
+    else
+    {
+      int num = rand.nextInt(12) + 1;
+     
+      if (num > 6)
+      {
+        return 0;
+      }
+      else
+      {
+        return 1;
+      }
+    }   
+  }
+  
+  //--------------------------------------------------------------------
+  // The following methods sort/search the Pokemon arrays. 
+  //--------------------------------------------------------------------
+  
+  public static int indexOfPokemon(ArrayList<Pokemon> pokemon, String choice)
+  {
+    for (int i = 0; i < pokemon.size(); i++)
+    {
+      String temp = pokemon.get(i).getName();
+      
+      if (temp.equals(choice))
+      {
+        return i; 
+      }
+    }
+    
+    return -1;
+  }
+  
+  public static void sortType(ArrayList<Pokemon> pokemon)
+  {
+    int min; // index of smallest element 
+    Pokemon temp; // for swapping
+    
+    for (int i = 0; i < pokemon.size()-1; i++)
+    {
+      min = i;
+      
+      for (int z = i+1; z < pokemon.size(); z++)
+      {
+        if (pokemon.get(z).getType().compareTo(pokemon.get(min).getType()) < 0)
+        {
+          min = z;
+        }
+      }
+      
+      temp = pokemon.get(min);
+      pokemon.set(min, pokemon.get(i));
+      pokemon.set(i, temp);
+    }
+  }
+  
+  public static void sortAlphabet(ArrayList<Pokemon> pokemon)
+  {
+        int min; // index of smallest element 
+    Pokemon temp; // for swapping
+    
+    for (int i = 0; i < pokemon.size()-1; i++)
+    {
+      min = i;
+      
+      for (int z = i+1; z < pokemon.size(); z++)
+      {
+        if (pokemon.get(z).getName().compareTo(pokemon.get(min).getName()) < 0)
+        {
+          min = z;
+        }
+      }
+      
+      temp = pokemon.get(min);
+      pokemon.set(min, pokemon.get(i));
+      pokemon.set(i, temp);
+    }
+  }
+}

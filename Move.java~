@@ -1,0 +1,49 @@
+public class Move
+{
+  private String moveName; 
+  private String moveType;
+  private int moveSpeed;
+  private double accuracy;
+  private boolean special;
+  private int baseDmg;
+  
+  public Move(String initMoveName, String initMoveType, int initMoveSpeed, double initaccuracy, boolean initSpecial, int initBaseDmg)
+  {
+    moveName = initMoveName;
+    moveType = initMoveType;
+    moveSpeed = initMoveSpeed;
+    accuracy = initaccuracy;
+    special = initSpecial;
+    baseDmg = initBaseDmg;
+  }
+  
+  public int moveSpeed()
+  {
+    return moveSpeed;
+  }
+  
+  public double getMoveAccuracy()
+  {
+    return accuracy;
+  }
+  
+  public String getMoveName()
+  {
+    return moveName;
+  }
+  
+  public String getMoveType()
+  {
+    return moveType;
+  }
+  
+  public boolean isSpecial() // Returns true if Move is a Special Attack // Returns false if Move is not a Special Attack 
+  {
+    return special;
+  }
+  
+  public int getBaseDmg()
+  {
+    return baseDmg;
+  }
+}

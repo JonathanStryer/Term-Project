@@ -1,0 +1,16 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class sortPokemon extends JPanel
+{
+  public sortPokemon()
+  {
+    JButton noSort = new JButton("Do not sort Pokemon!");
+    JButton sortAlphabetical = new JButton("Sort Pokemon by Alphabet");
+    JButton sortType = new JButton("Sort Pokemon by Type");
+    add(noSort);
+    add(sortAlphabetical);
+    add(sortType);
+  }
+}

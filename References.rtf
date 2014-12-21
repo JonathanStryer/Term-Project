@@ -1,0 +1,137 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf140
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww25400\viewh13180\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Jonathan Stryer\
+ECS 102 - M002\
+Final Project - Pokemon\
+References \
+\
+
+\b 1. I got the idea to make a Pokemon game from his video. I saw the different classes utilized to make the GUI, and seeing this helped me create classes for my game.
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=IbrLwJwvyUY&feature=youtu.be"}}{\fldrslt \cf0 https://www.youtube.com/watch?v=IbrLwJwvyUY&feature=youtu.be}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 2. This gave me a list of Pokemon (with their stats) to choose from. I was able to make my objects based on these stats such as health, attack strength, etc. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://pokemondb.net/pokedex/all"}}{\fldrslt \cf0 http://pokemondb.net/pokedex/all}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 3. Reading this made me understand better how to write a method that sees which Pokemon\'92s attack goes through first. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://gaming.stackexchange.com/questions/52075/how-do-i-know-who-attacks-first"}}{\fldrslt \cf0 http://gaming.stackexchange.com/questions/52075/how-do-i-know-who-attacks-first}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 4. This site was also used to look at stats. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://www.psypokes.com/dex/stats.php"}}{\fldrslt \cf0 http://www.psypokes.com/dex/stats.php}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 5. An important part of dealing damage to an opposing Pokemon is to know how much damage to deal. This page has a formula that I implemented into my method that accurately put together how much damage would be dealt to the opposing Pokemon. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://bulbapedia.bulbagarden.net/wiki/Damage#Damage_formula"}}{\fldrslt \cf0 http://bulbapedia.bulbagarden.net/wiki/Damage#Damage_formula}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 6. This page contains the formula that I implemented into my method regarding accuracy. I was able to make a method that calculated the probability that the actual attack would hit the target. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://bulbapedia.bulbagarden.net/wiki/Accuracy"}}{\fldrslt \cf0 http://bulbapedia.bulbagarden.net/wiki/Accuracy}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 7. This page helps me understand the compareTo() method.
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://www.tutorialspoint.com/java/java_string_compareto.htm"}}{\fldrslt \cf0 http://www.tutorialspoint.com/java/java_string_compareto.htm}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 8. This link reminded me how to use a random number generator to generate a random double. I needed the double to be within a certain range and the example helped me understand how to write my function. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/3680637/how-to-generate-a-random-double-in-a-given-range"}}{\fldrslt \cf0 http://stackoverflow.com/questions/3680637/how-to-generate-a-random-double-in-a-given-range}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 9. I paid special attention to the following links to help me understand how to write a GUI for my Pokemon game. I used this along with the ECS 102 textbook to help write my GUI.
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html"}}{\fldrslt \cf0 https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html#Graphics()"}}{\fldrslt \cf0 https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html#Graphics()}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html"}}{\fldrslt \cf0 https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://docs.oracle.com/javase/7/docs/api/overview-summary.html"}}{\fldrslt \cf0 https://docs.oracle.com/javase/7/docs/api/overview-summary.html}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://docs.oracle.com/javase/7/docs/api/java/awt/package-summary.html"}}{\fldrslt \cf0 https://docs.oracle.com/javase/7/docs/api/java/awt/package-summary.html}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://www.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html"}}{\fldrslt \cf0 http://www.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/17480765/refreshing-a-jlabel-icon-image"}}{\fldrslt \cf0 http://stackoverflow.com/questions/17480765/refreshing-a-jlabel-icon-image}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 10. TA Mike helped me figure out the problem I had when I called one of my methods. He told me to make the method static and call the name of the class before the method so my main method knows which class it is accessing. For example (Pokemon.sortAlphabet(pokemon)). 
+\b0 \
+\
+
+\b 11. This page provided me with a list of attacks that got me to start thinking about which attacks I want my Pokemon to use. This page also has stats associated with the Pokemon moves so I could implement those stats into my code. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://bulbapedia.bulbagarden.net/wiki/List_of_moves"}}{\fldrslt \cf0 http://www.psypokes.com/lab/attacks.php}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 12. This page outlines the fact that some attacks have a higher priority than others. For example, \'93Quick Attack\'94 should always come before any move in this Pokemon battle compared to most other moves in this set. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://www.psypokes.com/lab/priority.php"}}{\fldrslt \cf0 http://www.psypokes.com/lab/priority.php}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 13. This page taught me about evasion as a component in a Pokemon battle. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://bulbapedia.bulbagarden.net/wiki/Stats#Evasion"}}{\fldrslt \cf0 http://bulbapedia.bulbagarden.net/wiki/Stats#Evasion}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 14. Towards the end of my coding, Kevin gave me a good idea on how I can more efficiently and easily implement one part of my code. 
+\b0 \
+\
+
+\b 15. Many people who I am friends with on my floor played my game to give me feedback. One person said that not enough damage was being dealt at one time which led to the game taking to long. In response, I multiplied the damage, so the game would be faster and more interesting. \
+\
+16. Any actionListener code I have written is similar to actionListener code you can find throughout the textbook. \
+\
+17. This link taught me how to use the setText() method of a JButton. 
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/22897541/why-wont-my-custom-jbutton-display-its-name"}}{\fldrslt \cf0 http://stackoverflow.com/questions/22897541/why-wont-my-custom-jbutton-display-its-name}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 18. This link was extremely helpful in my choosePokemonPanel class. In this class, a panel is created that displays many Buttons. I had trouble identify which button was being pressed until I looked at how this person on StackOverflow wrote their code to identify the source.
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/13548299/how-do-i-tell-which-button-is-being-clicked-in-an-array-of-buttons"}}{\fldrslt \cf0 http://stackoverflow.com/questions/13548299/how-do-i-tell-which-button-is-being-clicked-in-an-array-of-buttons}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 19. I had help writing my searching and sorting methods by looking at how I wrote them in my code for one of my labs. 
+\b0 \
+}

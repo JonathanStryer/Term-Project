@@ -1,0 +1,115 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class choosePokemonPanel extends JPanel
+{ 
+  private static int pokemonSelected = 0;
+  private JRadioButton alphabet, type;
+  private static int count = 0;
+  private Pokemon[] pokemonChoices;
+  private Pokemon[] selectedPokemon;
+  
+  private static JLabel pokemonOne = new JLabel("Choice One");
+  private static JLabel pokemonTwo = new JLabel("Choice Two");
+  private static JLabel pokemonThree = new JLabel("Choice Three");
+  
+  public choosePokemonPanel(Pokemon[] initPokemonChoices)
+  {
+    pokemonChoices = initPokemonChoices;
+    
+    // NORTH PANEL
+    JPanel title = new JPanel();
+    title.setPreferredSize(new Dimension(100, 50));
+    JLabel chooseTitle = new JLabel("Select Three Pokemon To Fight With!");
+    title.add(chooseTitle);
+    title.setBackground(Color.orange);
+    
+    // CENTER PANEL
+    JPanel pokemonButtons = new JPanel();
+    pokemonButtons.setPreferredSize(new Dimension(100, 100));
+    pokemonButtons.setBackground(Color.orange);
+    //for (Pokemon p: pokemonChoices)
+    
+    // SOUTH PANEL
+    JPanel submitSelected = new JPanel();
+    submitSelected.setPreferredSize(new Dimension(100, 50));
+    JButton submit = new JButton("Submit Choices");
+    JLabel selected = new JLabel("Pokemon selected: " + pokemonSelected);
+    submitSelected.add(submit);
+    submitSelected.add(selected);
+    submitSelected.setBackground(Color.orange);
+    submit.addActionListener(new pokemonSubmit());  
+    
+    // WEST PANEL
+    JPanel sortOptions = new JPanel();
+    alphabet = new JRadioButton("Sort by Alphabet", true);
+    type = new JRadioButton("Sort by Type"); 
+    ButtonGroup sorts = new ButtonGroup();
+    sorts.add(alphabet);
+    sorts.add(type);
+    sortOptions.add(alphabet);
+    sortOptions.add(type);
+    sortOptions.setPreferredSize(new Dimension(150, 300));
+    sortOptions.setBackground(Color.orange);
+    
+    // EAST PANEL
+    JPanel selectedPokemon = new JPanel();
+    JLabel eastTitle = new JLabel("Selected Pokemon:");
+    selectedPokemon.add(eastTitle);
+    selectedPokemon.add(pokemonOne);
+    selectedPokemon.add(pokemonTwo);
+    selectedPokemon.add(pokemonThree);
+    selectedPokemon.setPreferredSize(new Dimension(150, 200));
+    selectedPokemon.setBackground(Color.orange);
+    selectedPokemon.setLayout(new GridLayout(0, 1));
+    
+    setLayout(new BorderLayout());
+    add(title, BorderLayout.NORTH);
+    add(sortOptions, BorderLayout.WEST);
+    add(selectedPokemon, BorderLayout.EAST);
+    add(pokemonButtons, BorderLayout.CENTER);
+    add(submitSelected, BorderLayout.SOUTH);
+    
+    setPreferredSize(new Dimension(700, 500));
+    setBackground(Color.black);
+   
+  }
+  
+  public void changeLabels(String pokemonName)
+  {
+    if (pokemonSelected == 1)
+    {
+      pokemonOne = new JLabel(pokemonName);
+    }
+    else if (pokemonSelected == 1)
+    {
+      pokemonTwo = new JLabel(pokemonName);
+    }
+    else if (pokemonSelected == 1)
+    {
+      pokemonThree = new JLabel(pokemonName);
+    }
+  }
+    
+  public int getCount()
+  {
+    return count;
+  }
+  
+  public Pokemon[] returnSelected()
+  {
+    return selectedPokemon;
+  }
+  
+  private class pokemonSubmit implements ActionListener
+  {
+    public void actionPerformed(ActionEvent event)
+    {
+       if (pokemonSelected == 3)
+       {
+         count++; 
+       }
+    }
+  }
+}
